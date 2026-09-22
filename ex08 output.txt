@@ -1,0 +1,12 @@
+PS C:\Users\Admin\Desktop\shanmu> javac InterThreadCommunication.java
+PS C:\Users\Admin\Desktop\shanmu> java InterThreadCommunication
+Produced:1
+Consumed:1
+Produced:2
+Consumed:2
+Produced:3
+Consumed:3
+Produced:4
+Consumed:4
+Produced:5
+Consumed:5
