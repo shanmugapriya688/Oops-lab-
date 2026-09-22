@@ -1,85 +1,66 @@
 import java.util.*;
-
-class Even implements Runnable
+class even implements Runnable
 {
     public int x;
-
-    public Even(int x)
+    public even(int x)
     {
-        this.x = x;
+        this.x=x;
     }
-
     public void run()
     {
-        System.out.println(
-            "New Thread " + x + " is EVEN and Square of " 
-            + x + " is: " + (x * x)
-        );
+        System.out.println("New Thread"+x+"is EVEN and Square of"+x+"is:"+x*x);
     }
 }
-
-class Odd implements Runnable
+class odd implements Runnable
 {
     public int x;
-
-    public Odd(int x)
+    public odd(int x)
     {
-        this.x = x;
-    }
 
+        this.x=x;
+    }
     public void run()
     {
-        System.out.println(
-            "New Thread " + x + " is ODD and Cube of " 
-            + x + " is: " + (x * x * x)
-        );
+        System.out.println("New Thread"+x+"is ODD and Cube of"+x+"is:"+x*x*x);
     }
-}
-
+} 
 class A extends Thread
 {
     public void run()
     {
-        int num;
+        int num = 0;
         Random r = new Random();
-
-        try
+        try 
         {
-            for (int i = 0; i < 5; i++)
+            for(int i = 0;i<5;i++)
             {
                 num = r.nextInt(100);
-
-                System.out.println(
-                    "Main Thread and Generated Number is " + num
-                );
-
-                if (num % 2 == 0)
+                System.out.println("Main Thread and Generated Number is"+num);
+                if(num%2 == 0)
                 {
-                    Thread t1 = new Thread(new Even(num));
+                    Thread t1 = new Thread(new even(num));
                     t1.start();
                 }
                 else
                 {
-                    Thread t2 = new Thread(new Odd(num));
+                    Thread t2 = new Thread(new odd(num));
                     t2.start();
                 }
-
                 Thread.sleep(1000);
-                System.out.println();
+                System.out.println("----------------------------------");
             }
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             System.out.println(ex.getMessage());
         }
     }
 }
-
 public class ThreadProgram
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[]args)
+    {                        
         A a = new A();
         a.start();
     }
-}
+}  
